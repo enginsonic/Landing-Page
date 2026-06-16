@@ -20,9 +20,9 @@
   --t2:#aeb2bb;
   --t3:#787c86;
   --t4:#565a63;
-  --accent:#3b82f6;
-  --accent-hi:#6aa8ff;
-  --accent-soft:rgba(59,130,246,.14);
+  --accent:#4f5fe6;
+  --accent-hi:#7c8bff;
+  --accent-soft:rgba(123,123,255,.15);
   --disp:"Space Grotesk",-apple-system,BlinkMacSystemFont,sans-serif; /* @kind font */
   --ui:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,sans-serif; /* @kind font */
   --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace; /* @kind font */
@@ -57,7 +57,7 @@ nav{
   background:linear-gradient(157deg,var(--accent-hi),var(--accent));
   box-shadow:0 3px 9px -2px var(--accent-soft),inset 0 1px 0 rgba(255,255,255,.4);
 }
-.brand .mk svg{width:62%;height:62%;stroke:#fff;fill:none;}
+.brand .mk svg{width:64%;height:64%;}
 .brand b{font-family:var(--disp);font-weight:600;font-size:16px;letter-spacing:-.2px;}
 .nav-links{display:flex;gap:4px;margin-left:8px;}
 .nav-links a{font-size:13.5px;color:var(--t2);padding:7px 12px;border-radius:8px;font-weight:500;}

@@ -16,7 +16,7 @@
 <nav>
   <div class="nav-in">
     <a class="brand" href="#top">
-      <span class="mk"><svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="7.5" height="8" rx="1.6"/><rect x="14.5" y="8" width="7.5" height="8" rx="1.6"/><path d="M9.8 12h3.4"/><path d="m11.6 10.2 2 1.8-2 1.8"/></svg></span>
+      <span class="mk"><svg viewBox="0 0 48 48" fill="none"><rect x="5" y="18.5" width="13.5" height="13.5" rx="3" fill="#fff"/><rect x="29.5" y="18.5" width="13.5" height="13.5" rx="3" fill="#fff" fill-opacity=".5"/><path d="M19 24H24V21.6L28 25 24 28.4V26H19Z" fill="#fff"/></svg></span>
       <b>VisualSync</b>
     </a>
     <div class="nav-links">
@@ -28,8 +28,8 @@
     </div>
     <div class="nav-right">
       <div class="accents" title="Accent">
-        <span class="sw" data-accent="sky"    style="background:#3b82f6" data-on></span>
-        <span class="sw" data-accent="indigo" style="background:#5a4fe6"></span>
+        <span class="sw" data-accent="sky"    style="background:#3b82f6"></span>
+        <span class="sw" data-accent="indigo" style="background:#4f5fe6" data-on></span>
         <span class="sw" data-accent="ocean"  style="background:#2f8ce6"></span>
       </div>
       <div class="lang">
@@ -51,7 +51,7 @@
   <div class="wrap">
     <span class="eyebrow" data-en="Native macOS · rsync front-end" data-it="macOS nativo · front-end per rsync">Native macOS · rsync front-end</span>
     <h1 data-en="rsync, without the <em>terminal</em>." data-it="rsync, senza il <em>terminale</em>."></h1>
-    <p class="lede" data-en="VisualSync is a native macOS app for backing up and mirroring folders. All the power of rsync — saved profiles, archive mode, dry runs — driven by checkboxes and a clear two-pane view." data-it="VisualSync è un'app macOS nativa per backup e mirroring di cartelle. Tutta la potenza di rsync — profili salvati, modalità archivio, prove a vuoto — guidata da caselle e una vista a due pannelli chiara.">VisualSync is a native macOS app for backing up and mirroring folders. All the power of rsync — saved profiles, archive mode, dry runs — driven by checkboxes and a clear two-pane view.</p>
+    <p class="lede" data-en="In reverend homage to the creator of rsync i vibed VisualSync is a native macOS app for backing up and mirroring folders. All the power of rsync — saved profiles, archive mode, dry runs — driven by checkboxes and a clear two-pane view." data-it="VisualSync è un'app macOS nativa per backup e mirroring di cartelle. Tutta la potenza di rsync — profili salvati, modalità archivio, prove a vuoto — guidata da caselle e una vista a due pannelli chiara.">VisualSync is a native macOS app for backing up and mirroring folders. All the power of rsync — saved profiles, archive mode, dry runs — driven by checkboxes and a clear two-pane view.</p>
     <div class="cta">
       <a href="#download" class="btn btn-pri">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 21h14"/></svg>
@@ -343,7 +343,7 @@
   // ---- accent ----
   const ACC = {
     sky:    {a:'#3b82f6', hi:'#6aa8ff', soft:'rgba(59,130,246,.14)'},
-    indigo: {a:'#5a4fe6', hi:'#8b8bff', soft:'rgba(123,123,255,.15)'},
+    indigo: {a:'#4f5fe6', hi:'#7c8bff', soft:'rgba(123,123,255,.15)'},
     ocean:  {a:'#2f8ce6', hi:'#43d2e6', soft:'rgba(47,140,230,.15)'},
   };
   function applyAccent(name){
@@ -369,7 +369,7 @@
 
   // ---- restore prefs ----
   applyLang(localStorage.getItem('vs_lang') || 'en');
-  applyAccent(localStorage.getItem('vs_accent') || 'sky');
+  applyAccent(localStorage.getItem('vs_accent') || 'indigo');
 </script>
 </body>
 </html>
