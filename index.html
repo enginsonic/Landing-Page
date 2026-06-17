@@ -3,33 +3,386 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta http-equiv="refresh" content="0; url=https://enginsonic.github.io/visualsync/" />
-<link rel="canonical" href="https://enginsonic.github.io/visualsync/" />
-<title>VisualSync has moved</title>
-<style>
-  html,body{height:100%;margin:0;}
-  body{
-    display:grid; place-items:center; text-align:center; padding:24px;
-    font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
-    color:#eef0f4;
-    background:
-      radial-gradient(800px 460px at 70% -8%, rgba(79,95,230,.22), transparent 60%),
-      #0b0c10;
-  }
-  .mk{ width:54px;height:54px;border-radius:14px;margin:0 auto 22px;display:grid;place-items:center;
-    background:radial-gradient(130% 115% at 50% -12%, #aab4ff, rgba(170,180,255,0) 46%), linear-gradient(158deg,#7c8bff,#4f5fe6 55%,#3531c2);
-    box-shadow:0 10px 24px -10px rgba(24,52,128,.6), inset 0 1.5px 0 rgba(255,255,255,.45); }
-  h1{ font-size:22px; font-weight:600; letter-spacing:-.3px; margin:0 0 8px; }
-  p{ color:#a4a8b3; font-size:15px; line-height:1.55; margin:0; }
-  a{ color:#7c8bff; text-decoration:none; }
-</style>
+<title>VisualSync — rsync, without the terminal</title>
+<link rel="icon" type="image/png" href="assets/icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="landing.css" />
 </head>
 <body>
-  <div>
-    <div class="mk"><svg viewBox="0 0 48 48" width="32" height="32" fill="none"><rect x="5" y="18.5" width="13.5" height="13.5" rx="3" fill="#fff"/><rect x="29.5" y="18.5" width="13.5" height="13.5" rx="3" fill="#fff" fill-opacity=".5"/><path d="M19 24H24V21.6L28 25 24 28.4V26H19Z" fill="#fff"/></svg></div>
-    <h1>VisualSync has moved</h1>
-    <p>Redirecting to <a href="https://enginsonic.github.io/visualsync/">enginsonic.github.io/visualsync</a>…</p>
+
+<!-- ======== NAV ======== -->
+<nav>
+  <div class="nav-in">
+    <a class="brand" href="#top">
+      <span class="mk"><svg viewBox="0 0 48 48" fill="none"><rect x="5" y="18.5" width="13.5" height="13.5" rx="3" fill="#fff"/><rect x="29.5" y="18.5" width="13.5" height="13.5" rx="3" fill="#fff" fill-opacity=".5"/><path d="M19 24H24V21.6L28 25 24 28.4V26H19Z" fill="#fff"/></svg></span>
+      <b>VisualSync</b>
+    </a>
+    <div class="nav-links">
+      <a href="#overview" data-en="Overview" data-it="Panoramica">Overview</a>
+      <a href="#features" data-en="Features" data-it="Funzioni">Features</a>
+      <a href="#guide" data-en="Guide" data-it="Guida">Guide</a>
+      <a href="#download" data-en="Download" data-it="Download">Download</a>
+      <a href="#about" data-en="About" data-it="Chi sono">About</a>
+    </div>
+    <div class="nav-right">
+      <div class="accents" title="Accent">
+        <span class="sw" data-accent="sky"    style="background:#3b82f6"></span>
+        <span class="sw" data-accent="indigo" style="background:#4f5fe6" data-on></span>
+        <span class="sw" data-accent="ocean"  style="background:#2f8ce6"></span>
+      </div>
+      <div class="lang">
+        <button data-lang="en" data-on>EN</button>
+        <button data-lang="it">IT</button>
+      </div>
+      <a href="#download" class="btn btn-pri">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 21h14"/></svg>
+        <span data-en="Download" data-it="Scarica">Download</span>
+      </a>
+    </div>
   </div>
-  <script>location.replace("https://enginsonic.github.io/visualsync/");</script>
+</nav>
+
+<a id="top"></a>
+
+<!-- ======== HERO ======== -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow" data-en="rsync cockpit · native macOS" data-it="cockpit per rsync · macOS nativo">rsync cockpit · native macOS</span>
+    <h1 data-en="Suit and tie for <em>rsync</em>." data-it="<em>rsync</em> in giacca e cravatta."></h1>
+    <p class="lede" data-en="VisualSync is based on the reference work of Andrew Tridgell, rsync — a shell-command sync for backing up and mirroring folders, now piloted by a simple graphical interface. All the power of rsync — saved profiles, archive mode, dry runs — driven by checkboxes and a clear two-pane view. Every sync is previewed first — nothing touches your disk until you say so." data-it="VisualSync si basa sul lavoro di riferimento di Andrew Tridgell, rsync — una sincronizzazione da riga di comando per backup e mirroring di cartelle, ora pilotata da una semplice interfaccia grafica. Tutta la potenza di rsync — profili salvati, modalità archivio, prove a vuoto — guidata da caselle e una vista a due pannelli chiara. Ogni sincronizzazione parte da un'anteprima: niente tocca il disco finché non confermi tu.">VisualSync is based on the reference work of Andrew Tridgell, rsync — a shell-command sync for backing up and mirroring folders, now piloted by a simple graphical interface. All the power of rsync — saved profiles, archive mode, dry runs — driven by checkboxes and a clear two-pane view. Every sync is previewed first — nothing touches your disk until you say so.</p>
+    <div class="cta">
+      <a href="#download" class="btn btn-pri">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 21h14"/></svg>
+        <span data-en="Download for macOS" data-it="Scarica per macOS">Download for macOS</span>
+      </a>
+      <a href="#guide" class="btn btn-ghost">
+        <span data-en="See how it works" data-it="Come funziona">See how it works</span>
+      </a>
+    </div>
+    <p class="meta" data-en="Free · macOS 14+ · Apple Silicon &amp; Intel" data-it="Gratis · macOS 14+ · Apple Silicon e Intel">Free · macOS 14+ · Apple Silicon &amp; Intel</p>
+
+    <div class="shot">
+      <img src="assets/app-shot.png" alt="VisualSync app window" />
+    </div>
+  </div>
+</header>
+
+<!-- ======== OVERVIEW ======== -->
+<section class="block" id="overview">
+  <div class="wrap overview-grid">
+    <div>
+      <span class="eyebrow" data-en="What it is" data-it="Cos'è">What it is</span>
+      <p class="statement" data-en="rsync is the best backup tool on the Mac. Its interface just happens to be a manual page." data-it="rsync è il miglior strumento di backup su Mac. Solo che la sua interfaccia è una pagina di manuale.">rsync is the best backup tool on the Mac. Its interface just happens to be a manual page.</p>
+    </div>
+    <div class="body">
+      <p data-en="VisualSync wraps rsync in a calm, native interface. You see your source and destination side by side, tick exactly what to sync, and flip options like archive mode or compression as plain switches — each one labeled with the flag it maps to." data-it="VisualSync avvolge rsync in un'interfaccia nativa e ordinata. Vedi sorgente e destinazione affiancate, spunti esattamente cosa sincronizzare e attivi opzioni come modalità archivio o compressione con semplici interruttori — ognuno etichettato con il flag corrispondente.">VisualSync wraps rsync in a calm, native interface. You see your source and destination side by side, tick exactly what to sync, and flip options like archive mode or compression as plain switches — each one labeled with the flag it maps to.</p>
+      <p data-en="Save a setup once as a profile and re-run it in a click. Always preview with a dry run before anything touches disk. No memorizing flags, no fear of --delete." data-it="Salva una configurazione come profilo e rilanciala con un clic. Visualizza sempre l'anteprima con una prova a vuoto prima che qualcosa tocchi il disco. Niente flag da memorizzare, nessuna paura di --delete.">Save a setup once as a profile and re-run it in a click. Always preview with a dry run before anything touches disk. No memorizing flags, no fear of --delete.</p>
+      <div class="kvs">
+        <div class="kv"><span class="k">ENGINE</span><span class="v" data-en="Real rsync under the hood — fully compatible" data-it="rsync vero sotto il cofano — totalmente compatibile">Real rsync under the hood — fully compatible</span></div>
+        <div class="kv"><span class="k">NATIVE</span><span class="v" data-en="SwiftUI app, signed &amp; notarized" data-it="App SwiftUI, firmata e notarizzata">SwiftUI app, signed &amp; notarized</span></div>
+        <div class="kv"><span class="k">PRIVATE</span><span class="v" data-en="Runs locally — nothing leaves your Mac" data-it="Gira in locale — niente lascia il tuo Mac">Runs locally — nothing leaves your Mac</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== FEATURES ======== -->
+<section class="block" id="features">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-en="Features" data-it="Funzioni">Features</span>
+      <h2 data-en="Everything rsync does, where you can see it" data-it="Tutto ciò che fa rsync, ma a vista">Everything rsync does, where you can see it</h2>
+    </div>
+    <div class="feat-grid">
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-9 9 9 9 0 1 1 9-9z"/><path d="m8 12 3 3 5-6"/></svg></div>
+        <h3 data-en="Saved profiles" data-it="Profili salvati">Saved profiles</h3>
+        <p data-en="Store source, destination and options as a named profile. Re-run any backup with a single click." data-it="Salva sorgente, destinazione e opzioni come profilo. Rilancia ogni backup con un solo clic.">Store source, destination and options as a named profile. Re-run any backup with a single click.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="7" height="14" rx="1.5"/><rect x="14" y="5" width="7" height="14" rx="1.5"/></svg></div>
+        <h3 data-en="Two-pane view" data-it="Vista a due pannelli">Two-pane view</h3>
+        <p data-en="Source and destination trees side by side, with checkboxes on every folder and file. See exactly what moves." data-it="Alberi di sorgente e destinazione affiancati, con caselle su ogni cartella e file. Vedi esattamente cosa si sposta.">Source and destination trees side by side, with checkboxes on every folder and file. See exactly what moves.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="8" cy="7" r="2" fill="currentColor" stroke="none"/><circle cx="16" cy="17" r="2" fill="currentColor" stroke="none"/></svg></div>
+        <h3>rsync flags <span class="flag">-a -z</span></h3>
+        <p data-en="Archive mode, compression, delete-extraneous and more as labeled switches — no cheat sheet required." data-it="Modalità archivio, compressione, eliminazione e altro come interruttori etichettati — senza bisogno di promemoria.">Archive mode, compression, delete-extraneous and more as labeled switches — no cheat sheet required.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3 data-en="Dry run preview" data-it="Anteprima a vuoto">Dry run preview</h3>
+        <p data-en="Run with -n to see every change before it happens. Nothing touches disk until you say so." data-it="Esegui con -n per vedere ogni modifica prima che avvenga. Niente tocca il disco finché non decidi tu.">Run with -n to see every change before it happens. Nothing touches disk until you say so.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="3" width="8" height="4" rx="1"/><path d="M16 5h2a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2"/></svg></div>
+        <h3 data-en="Paste or browse paths" data-it="Incolla o sfoglia i path">Paste or browse paths</h3>
+        <p data-en="Editable path fields above each pane — paste a long path straight in, or pick a folder with the system browser." data-it="Campi path modificabili sopra ogni pannello — incolla un percorso lungo, o scegli una cartella col browser di sistema.">Editable path fields above each pane — paste a long path straight in, or pick a folder with the system browser.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v5h5"/><path d="M3.05 13A9 9 0 1 0 6 5.3L3 8"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3 data-en="Sync history" data-it="Cronologia">Sync history</h3>
+        <p data-en="Every run is logged with timestamp and size, so you always know when a profile last synced." data-it="Ogni esecuzione è registrata con data e dimensione, così sai sempre quando un profilo è stato sincronizzato.">Every run is logged with timestamp and size, so you always know when a profile last synced.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== GUIDE ======== -->
+<section class="block" id="guide">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-en="Guide" data-it="Guida">Guide</span>
+      <h2 data-en="From zero to synced in five steps" data-it="Da zero a sincronizzato in cinque passi">From zero to synced in five steps</h2>
+      <p data-en="No terminal, no man pages. Here's the whole flow." data-it="Niente terminale, niente pagine di manuale. Ecco l'intero flusso.">No terminal, no man pages. Here's the whole flow.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <h3 data-en="Create a profile" data-it="Crea un profilo">Create a profile</h3>
+        <p data-en="Hit + in the Profiles list and give your backup a name — e.g. “Photos → NAS”." data-it="Premi + nella lista Profili e dai un nome al backup — es. “Photos → NAS”.">Hit + in the Profiles list and give your backup a name — e.g. “Photos → NAS”.</p>
+      </div>
+      <div class="step">
+        <h3 data-en="Set source &amp; destination" data-it="Imposta sorgente e destinazione">Set source &amp; destination</h3>
+        <p data-en="Paste the paths into the fields above each pane, or click Browse to pick folders." data-it="Incolla i percorsi nei campi sopra ogni pannello, o clicca Browse per scegliere le cartelle.">Paste the paths into the fields above each pane, or click Browse to pick folders.</p>
+      </div>
+      <div class="step">
+        <h3 data-en="Pick what to sync" data-it="Scegli cosa sincronizzare">Pick what to sync</h3>
+        <p data-en="Tick the folders and files in the source tree. Toggle options like archive mode or compression." data-it="Spunta cartelle e file nell'albero sorgente. Attiva opzioni come modalità archivio o compressione.">Tick the folders and files in the source tree. Toggle options like archive mode or compression.</p>
+      </div>
+      <div class="step">
+        <h3 data-en="Preview with a dry run" data-it="Anteprima con prova a vuoto">Preview with a dry run</h3>
+        <p data-en="Keep Dry run on and press Run Sync to see every change rsync would make — safely." data-it="Tieni Dry run attivo e premi Run Sync per vedere ogni modifica che rsync farebbe — in sicurezza.">Keep Dry run on and press Run Sync to see every change rsync would make — safely.</p>
+      </div>
+      <div class="step">
+        <h3 data-en="Run it for real" data-it="Esegui davvero">Run it for real</h3>
+        <p data-en="Happy with the preview? Turn off Dry run and hit Run Sync. The profile remembers everything for next time." data-it="Soddisfatto dell'anteprima? Disattiva Dry run e premi Run Sync. Il profilo ricorda tutto per la prossima volta.">Happy with the preview? Turn off Dry run and hit Run Sync. The profile remembers everything for next time.</p>
+      </div>
+      <div class="step">
+        <h3 data-en="Re-run anytime" data-it="Rilancia quando vuoi">Re-run anytime</h3>
+        <p data-en="Select the profile and press play. Sync history shows when it last ran and how much moved." data-it="Seleziona il profilo e premi play. La cronologia mostra l'ultima esecuzione e quanto è stato spostato.">Select the profile and press play. Sync history shows when it last ran and how much moved.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== DOWNLOAD ======== -->
+<section class="block" id="download">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-en="Download" data-it="Download">Download</span>
+      <h2 data-en="Get VisualSync" data-it="Scarica VisualSync">Get VisualSync</h2>
+    </div>
+    <div class="dl">
+      <div class="dl-card">
+        <span class="ver mono" id="js-ver-badge">v0.9.5 · June 2026</span>
+        <h3 data-en="Free &amp; open source" data-it="Gratis e open source">Free &amp; open source</h3>
+        <p data-en="Download the signed app, or install with Homebrew. Source is on GitHub under the MIT license." data-it="Scarica l'app firmata, o installa con Homebrew. Il sorgente è su GitHub con licenza MIT.">Download the signed app, or install with Homebrew. Source is on GitHub under the MIT license.</p>
+        <div class="cta">
+          <a href="https://github.com/enginsonic/VisualSync/releases/latest/download/VisualSync.dmg" class="btn btn-pri">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 21h14"/></svg>
+            <span data-en="Download .dmg" data-it="Scarica .dmg">Download .dmg</span>
+          </a>
+          <a href="https://github.com/enginsonic/VisualSync/releases" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.3 4.3 0 0 0-.1-3.2s-1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.9 2.3 5.9 2.6 5.9 2.6a4.3 4.3 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.5 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+            <span>GitHub</span>
+          </a>
+        </div>
+        <div class="brew">
+          <span class="dollar">$</span>
+          <span>brew install --cask visualsync</span>
+          <span class="copy" id="copyBrew" data-en="Copy" data-it="Copia">Copy</span>
+        </div>
+      </div>
+      <div class="req">
+        <div class="ri">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+          <div><b data-en="macOS 14 Sonoma or later" data-it="macOS 14 Sonoma o successivo">macOS 14 Sonoma or later</b><span data-en="Universal — Apple Silicon &amp; Intel" data-it="Universale — Apple Silicon e Intel">Universal — Apple Silicon &amp; Intel</span></div>
+        </div>
+        <div class="ri">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg>
+          <div><b data-en="Signed &amp; notarized" data-it="Firmata e notarizzata">Signed &amp; notarized</b><span data-en="No Gatekeeper warnings, no workarounds" data-it="Nessun avviso Gatekeeper, nessun aggiramento">No Gatekeeper warnings, no workarounds</span></div>
+        </div>
+        <div class="ri">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+          <div><b data-en="~14 MB" data-it="~14 MB">~14 MB</b><span data-en="Bundles its own rsync 3.x" data-it="Include il proprio rsync 3.x">Bundles its own rsync 3.x</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== CHANGELOG ======== -->
+<section class="block" id="changelog">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-en="Changelog" data-it="Novità">Changelog</span>
+      <h2 data-en="What's new" data-it="Cosa c'è di nuovo">What's new</h2>
+    </div>
+    <div class="log">
+      <div class="logrow">
+        <div class="meta"><div class="v">0.9.5</div><div class="d">Jun 2026</div><div class="tag">Latest</div></div>
+        <ul>
+          <li data-en="First public beta — saved sync profiles, two-pane file browser" data-it="Prima beta pubblica — profili di sync salvati, file browser a due pannelli">First public beta — saved sync profiles, two-pane file browser</li>
+          <li data-en="Dry-run preview with itemised change list and safe delete confirmation" data-it="Anteprima dry-run con lista modifiche e conferma eliminazioni sicura">Dry-run preview with itemised change list and safe delete confirmation</li>
+          <li data-en="Run history per profile with duration and exit-code summary" data-it="Cronologia esecuzioni per profilo con durata e codice di uscita">Run history per profile with duration and exit-code summary</li>
+          <li data-en="File exclusions with glob pattern support (*, ?, trailing /)" data-it="Esclusioni file con pattern glob (*, ?, / finale)">File exclusions with glob pattern support (*, ?, trailing /)</li>
+          <li data-en="Daily/hourly scheduling via launchd, configurable hour and minute" data-it="Pianificazione giornaliera/oraria via launchd, ora e minuto configurabili">Daily/hourly scheduling via launchd, configurable hour and minute</li>
+          <li data-en="Bundled rsync 3.4.1 — independent of macOS system rsync" data-it="rsync 3.4.1 incluso — indipendente dall'rsync di sistema macOS">Bundled rsync 3.4.1 — independent of macOS system rsync</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== ABOUT ======== -->
+<section class="block" id="about">
+  <div class="wrap about">
+    <div class="photo">
+      <div class="ph">your photo →</div>
+    </div>
+    <div class="who">
+      <span class="eyebrow" data-en="About the maker" data-it="Chi l'ha fatta">About the maker</span>
+      <h2>Carlo</h2>
+      <div class="role" data-en="Indie developer · macOS &amp; tools" data-it="Sviluppatore indie · macOS e strumenti">Indie developer · macOS &amp; tools</div>
+      <p data-en="I build small, focused native apps that take something powerful but intimidating and make it feel obvious. VisualSync started as a tool for my own Obsidian-to-OneDrive backups — I was tired of retyping rsync flags and second-guessing --delete." data-it="Costruisco piccole app native e mirate che prendono qualcosa di potente ma intimidatorio e lo rendono ovvio. VisualSync è nata come strumento per i miei backup da Obsidian a OneDrive — ero stanco di riscrivere i flag di rsync e di avere dubbi su --delete.">I build small, focused native apps that take something powerful but intimidating and make it feel obvious. VisualSync started as a tool for my own Obsidian-to-OneDrive backups — I was tired of retyping rsync flags and second-guessing --delete.</p>
+      <p data-en="If it's useful to you too, that's the whole point. Feedback, bug reports and ideas are always welcome." data-it="Se è utile anche a te, è esattamente lo scopo. Feedback, segnalazioni e idee sono sempre benvenuti.">If it's useful to you too, that's the whole point. Feedback, bug reports and ideas are always welcome.</p>
+      <div class="role" id="js-ver-about" data-en="Current version 0.9.5 · macOS 14+" data-it="Versione attuale 0.9.5 · macOS 14+">Current version 0.9.5 · macOS 14+</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== PROJECTS ======== -->
+<section class="block" id="projects">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-en="Other projects" data-it="Altri progetti">Other projects</span>
+      <h2 data-en="Things I've built" data-it="Cose che ho creato">Things I've built</h2>
+    </div>
+    <div class="proj-grid">
+      <a class="proj" href="#">
+        <div class="thumb"><span class="badge">project shot</span></div>
+        <div class="pb">
+          <div class="pcat" data-en="macOS app" data-it="App macOS">macOS app</div>
+          <h3>VisualSync <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></h3>
+          <p data-en="The visual rsync front-end you're looking at." data-it="Il front-end visuale per rsync che stai guardando.">The visual rsync front-end you're looking at.</p>
+        </div>
+      </a>
+      <a class="proj" href="#">
+        <div class="thumb"><span class="badge">project shot</span></div>
+        <div class="pb">
+          <div class="pcat" data-en="Project" data-it="Progetto">Project</div>
+          <h3 data-en="Project Two" data-it="Progetto Due">Project Two <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></h3>
+          <p data-en="Add a one-line description of another thing you've made." data-it="Aggiungi una descrizione di un'altra cosa che hai creato.">Add a one-line description of another thing you've made.</p>
+        </div>
+      </a>
+      <a class="proj" href="#">
+        <div class="thumb"><span class="badge">project shot</span></div>
+        <div class="pb">
+          <div class="pcat" data-en="Project" data-it="Progetto">Project</div>
+          <h3 data-en="Project Three" data-it="Progetto Tre">Project Three <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></h3>
+          <p data-en="And a third — swap these for your real work." data-it="E un terzo — sostituiscili con i tuoi lavori reali.">And a third — swap these for your real work.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== FOOTER / CONTACT ======== -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-cta">
+        <h2 data-en="Let's talk." data-it="Parliamone.">Let's talk.</h2>
+        <p data-en="Questions about VisualSync, a bug to report, or just want to say hi? I'm around." data-it="Domande su VisualSync, un bug da segnalare, o solo un saluto? Ci sono.">Questions about VisualSync, a bug to report, or just want to say hi? I'm around.</p>
+      </div>
+      <div class="socials">
+        <a class="social" href="#"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.3 4.3 0 0 0-.1-3.2s-1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.9 2.3 5.9 2.6 5.9 2.6a4.3 4.3 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.5 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a>
+        <a class="social" href="#"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.7 16H20L8.3 4zM4 20 10 13M14 11 20 4"/></svg>X / Twitter</a>
+        <a class="social" href="#"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</a>
+        <a class="social" href="#"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3a14 14 0 0 0 0 18M12 3a14 14 0 0 1 0 18"/></svg><span data-en="Website" data-it="Sito">Website</span></a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Carlo · VisualSync</span>
+      <span data-en="Made on a Mac, for the Mac." data-it="Fatto su Mac, per il Mac.">Made on a Mac, for the Mac.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---- language ----
+  const STR = document.querySelectorAll('[data-en]');
+  function applyLang(lang){
+    document.documentElement.lang = lang;
+    STR.forEach(el=>{
+      const v = el.getAttribute('data-'+lang);
+      if(v==null) return;
+      if(/[<&]/.test(v)) el.innerHTML = v; else el.textContent = v;
+    });
+    document.querySelectorAll('.lang button').forEach(b=>{
+      b.toggleAttribute('data-on', b.dataset.lang===lang);
+    });
+    localStorage.setItem('vs_lang', lang);
+  }
+  document.querySelectorAll('.lang button').forEach(b=>{
+    b.addEventListener('click',()=>applyLang(b.dataset.lang));
+  });
+
+  // ---- accent ----
+  const ACC = {
+    sky:    {a:'#3b82f6', hi:'#6aa8ff', soft:'rgba(59,130,246,.14)'},
+    indigo: {a:'#4f5fe6', hi:'#7c8bff', soft:'rgba(123,123,255,.15)'},
+    ocean:  {a:'#2f8ce6', hi:'#43d2e6', soft:'rgba(47,140,230,.15)'},
+  };
+  function applyAccent(name){
+    const c = ACC[name]; if(!c) return;
+    const r = document.documentElement.style;
+    r.setProperty('--accent', c.a);
+    r.setProperty('--accent-hi', c.hi);
+    r.setProperty('--accent-soft', c.soft);
+    document.querySelectorAll('.accents .sw').forEach(s=>s.toggleAttribute('data-on', s.dataset.accent===name));
+    localStorage.setItem('vs_accent', name);
+  }
+  document.querySelectorAll('.accents .sw').forEach(s=>{
+    s.addEventListener('click',()=>applyAccent(s.dataset.accent));
+  });
+
+  // ---- copy brew ----
+  const cb = document.getElementById('copyBrew');
+  cb.addEventListener('click',()=>{
+    navigator.clipboard && navigator.clipboard.writeText('brew install --cask visualsync');
+    const o = cb.textContent; cb.textContent = (document.documentElement.lang==='it'?'Copiato ✓':'Copied ✓');
+    setTimeout(()=>applyLang(document.documentElement.lang),1400);
+  });
+
+  // ---- restore prefs ----
+  applyLang(localStorage.getItem('vs_lang') || 'en');
+  applyAccent(localStorage.getItem('vs_accent') || 'indigo');
+
+  // ---- version badge (source of truth: latest GitHub release tag) ----
+  fetch('https://api.github.com/repos/enginsonic/VisualSync/releases/latest')
+    .then(r => r.json())
+    .then(data => {
+      const tag = data.tag_name;                    // e.g. "v1.2.0"
+      const ver = tag.replace(/^v/, '');            // "1.2.0"
+      const mon = new Date(data.published_at)
+        .toLocaleDateString('en-US', {month:'short', year:'numeric'}); // "Jun 2026"
+
+      const badge = document.getElementById('js-ver-badge');
+      if (badge) badge.textContent = `${tag} · ${mon}`;
+
+      const about = document.getElementById('js-ver-about');
+      if (about) {
+        const enV = `Current version ${ver} · macOS 14+`;
+        const itV = `Versione attuale ${ver} · macOS 14+`;
+        about.setAttribute('data-en', enV);
+        about.setAttribute('data-it', itV);
+        about.textContent = document.documentElement.lang === 'it' ? itV : enV;
+      }
+    })
+    .catch(() => {}); // fail silently — static fallback resta visibile
+</script>
 </body>
 </html>
