@@ -176,7 +176,7 @@
     </div>
     <div class="dl">
       <div class="dl-card">
-        <span class="ver mono">v1.2.0 · June 2026</span>
+        <span class="ver mono" id="js-ver-badge">v1.2.0 · June 2026</span>
         <h3 data-en="Free &amp; open source" data-it="Gratis e open source">Free &amp; open source</h3>
         <p data-en="Download the signed app, or install with Homebrew. Source is on GitHub under the MIT license." data-it="Scarica l'app firmata, o installa con Homebrew. Il sorgente è su GitHub con licenza MIT.">Download the signed app, or install with Homebrew. Source is on GitHub under the MIT license.</p>
         <div class="cta">
@@ -259,7 +259,7 @@
       <div class="role" data-en="Indie developer · macOS &amp; tools" data-it="Sviluppatore indie · macOS e strumenti">Indie developer · macOS &amp; tools</div>
       <p data-en="I build small, focused native apps that take something powerful but intimidating and make it feel obvious. VisualSync started as a tool for my own Obsidian-to-OneDrive backups — I was tired of retyping rsync flags and second-guessing --delete." data-it="Costruisco piccole app native e mirate che prendono qualcosa di potente ma intimidatorio e lo rendono ovvio. VisualSync è nata come strumento per i miei backup da Obsidian a OneDrive — ero stanco di riscrivere i flag di rsync e di avere dubbi su --delete.">I build small, focused native apps that take something powerful but intimidating and make it feel obvious. VisualSync started as a tool for my own Obsidian-to-OneDrive backups — I was tired of retyping rsync flags and second-guessing --delete.</p>
       <p data-en="If it's useful to you too, that's the whole point. Feedback, bug reports and ideas are always welcome." data-it="Se è utile anche a te, è esattamente lo scopo. Feedback, segnalazioni e idee sono sempre benvenuti.">If it's useful to you too, that's the whole point. Feedback, bug reports and ideas are always welcome.</p>
-      <div class="role" data-en="Current version 1.0 · macOS 12+" data-it="Versione attuale 1.0 · macOS 12+">Current version 1.0 · macOS 12+</div>
+      <div class="role" id="js-ver-about" data-en="Current version 1.2.0 · macOS 12+" data-it="Versione attuale 1.2.0 · macOS 12+">Current version 1.2.0 · macOS 12+</div>
     </div>
   </div>
 </section>
@@ -371,6 +371,29 @@
   // ---- restore prefs ----
   applyLang(localStorage.getItem('vs_lang') || 'en');
   applyAccent(localStorage.getItem('vs_accent') || 'indigo');
+
+  // ---- version badge (source of truth: latest GitHub release tag) ----
+  fetch('https://api.github.com/repos/enginsonic/Landing-Page/releases/latest')
+    .then(r => r.json())
+    .then(data => {
+      const tag = data.tag_name;                    // e.g. "v1.2.0"
+      const ver = tag.replace(/^v/, '');            // "1.2.0"
+      const mon = new Date(data.published_at)
+        .toLocaleDateString('en-US', {month:'short', year:'numeric'}); // "Jun 2026"
+
+      const badge = document.getElementById('js-ver-badge');
+      if (badge) badge.textContent = `${tag} · ${mon}`;
+
+      const about = document.getElementById('js-ver-about');
+      if (about) {
+        const enV = `Current version ${ver} · macOS 12+`;
+        const itV = `Versione attuale ${ver} · macOS 12+`;
+        about.setAttribute('data-en', enV);
+        about.setAttribute('data-it', itV);
+        about.textContent = document.documentElement.lang === 'it' ? itV : enV;
+      }
+    })
+    .catch(() => {}); // fail silently — static fallback resta visibile
 </script>
 </body>
 </html>
