@@ -61,7 +61,7 @@
         <span data-en="See how it works" data-it="Come funziona">See how it works</span>
       </a>
     </div>
-    <p class="meta" data-en="Free · macOS 12+ · Apple Silicon &amp; Intel" data-it="Gratis · macOS 12+ · Apple Silicon e Intel">Free · macOS 12+ · Apple Silicon &amp; Intel</p>
+    <p class="meta" data-en="Free · macOS 14+ · Apple Silicon &amp; Intel" data-it="Gratis · macOS 14+ · Apple Silicon e Intel">Free · macOS 14+ · Apple Silicon &amp; Intel</p>
 
     <div class="shot">
       <img src="assets/app-shot.png" alt="VisualSync app window" />
@@ -198,7 +198,7 @@
       <div class="req">
         <div class="ri">
           <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
-          <div><b data-en="macOS 12 Monterey or later" data-it="macOS 12 Monterey o successivo">macOS 12 Monterey or later</b><span data-en="Universal — Apple Silicon &amp; Intel" data-it="Universale — Apple Silicon e Intel">Universal — Apple Silicon &amp; Intel</span></div>
+          <div><b data-en="macOS 14 Sonoma or later" data-it="macOS 14 Sonoma o successivo">macOS 14 Sonoma or later</b><span data-en="Universal — Apple Silicon &amp; Intel" data-it="Universale — Apple Silicon e Intel">Universal — Apple Silicon &amp; Intel</span></div>
         </div>
         <div class="ri">
           <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg>
@@ -248,7 +248,7 @@
       <div class="role" data-en="Indie developer · macOS &amp; tools" data-it="Sviluppatore indie · macOS e strumenti">Indie developer · macOS &amp; tools</div>
       <p data-en="I build small, focused native apps that take something powerful but intimidating and make it feel obvious. VisualSync started as a tool for my own Obsidian-to-OneDrive backups — I was tired of retyping rsync flags and second-guessing --delete." data-it="Costruisco piccole app native e mirate che prendono qualcosa di potente ma intimidatorio e lo rendono ovvio. VisualSync è nata come strumento per i miei backup da Obsidian a OneDrive — ero stanco di riscrivere i flag di rsync e di avere dubbi su --delete.">I build small, focused native apps that take something powerful but intimidating and make it feel obvious. VisualSync started as a tool for my own Obsidian-to-OneDrive backups — I was tired of retyping rsync flags and second-guessing --delete.</p>
       <p data-en="If it's useful to you too, that's the whole point. Feedback, bug reports and ideas are always welcome." data-it="Se è utile anche a te, è esattamente lo scopo. Feedback, segnalazioni e idee sono sempre benvenuti.">If it's useful to you too, that's the whole point. Feedback, bug reports and ideas are always welcome.</p>
-      <div class="role" id="js-ver-about" data-en="Current version 0.9.5 · macOS 12+" data-it="Versione attuale 0.9.5 · macOS 12+">Current version 0.9.5 · macOS 12+</div>
+      <div class="role" id="js-ver-about" data-en="Current version 0.9.5 · macOS 14+" data-it="Versione attuale 0.9.5 · macOS 14+">Current version 0.9.5 · macOS 14+</div>
     </div>
   </div>
 </section>
@@ -375,8 +375,8 @@
 
       const about = document.getElementById('js-ver-about');
       if (about) {
-        const enV = `Current version ${ver} · macOS 12+`;
-        const itV = `Versione attuale ${ver} · macOS 12+`;
+        const enV = `Current version ${ver} · macOS 14+`;
+        const itV = `Versione attuale ${ver} · macOS 14+`;
         about.setAttribute('data-en', enV);
         about.setAttribute('data-it', itV);
         about.textContent = document.documentElement.lang === 'it' ? itV : enV;
